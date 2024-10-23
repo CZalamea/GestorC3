@@ -1,9 +1,7 @@
 package com.raccoon.gestorc3;
 
 import android.os.Bundle;
-
 import android.widget.Button;
-
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -50,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             if (usuario.equals(Usuario) && clave.equals(Clave)) {
                 //datos correctos -> ingresa
                 Toast.makeText(MainActivity.this, "Acceso Concedido", Toast.LENGTH_SHORT).show();
-            }else{
+            } else {
                 //datos incorrectos -> no ingresa
                 Toast.makeText(MainActivity.this, "Datos incorrectos", Toast.LENGTH_SHORT).show();
             }
