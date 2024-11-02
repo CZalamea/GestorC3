@@ -1,5 +1,6 @@
 package com.raccoon.gestorc3;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
@@ -47,13 +48,21 @@ public class MainActivity extends AppCompatActivity {
             //validar los datos
             if (usuario.equals(Usuario) && clave.equals(Clave)) {
                 //datos correctos -> ingresa
-                Toast.makeText(MainActivity.this, "Acceso Concedido", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Acceso Concedido", Toast.LENGTH_LONG).show();
             } else {
                 //datos incorrectos -> no ingresa
-                Toast.makeText(MainActivity.this, "Datos incorrectos", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Datos incorrectos", Toast.LENGTH_LONG).show();
             }
 
         });
+
+        //redireccionando al activity registro
+        Button btnRegistro = findViewById(R.id.buttonRegistro);
+        btnRegistro.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, RegistroActivity.class);
+            startActivity(intent);
+        });
+
     }
 
 }

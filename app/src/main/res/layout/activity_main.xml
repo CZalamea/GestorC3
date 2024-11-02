@@ -92,7 +92,8 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditTextClave" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputEditTextClave"
+        tools:ignore="RtlSymmetry" />
 
     <TextView
         android:id="@+id/textView6"
@@ -121,6 +122,18 @@
             android:hint="@string/txt_usuario"
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/buttonRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Registrese"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintVertical_bias="0.183" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

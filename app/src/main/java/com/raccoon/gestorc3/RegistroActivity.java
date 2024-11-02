@@ -1,6 +1,7 @@
 package com.raccoon.gestorc3;
 
 import android.os.Bundle;
+import android.widget.Spinner;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,5 +22,8 @@ public class RegistroActivity extends AppCompatActivity {
             return insets;
         });
     }
+
+    Spinner spinnerNacionalidad = findViewById(R.id.spinner);
+    Spinner spinnerGenero = findViewById(R.id.spinner);
 
 }

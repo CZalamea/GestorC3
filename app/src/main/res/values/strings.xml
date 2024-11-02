@@ -4,7 +4,17 @@
     <string name="Developer">Cesar Zalamea</string>
     <string name="desarrollado">Desarrollado por: </string>
     <string name="version">Version 1.0</string>
-    <string name="logo_proyecto">Logo Proyecto</string>"
+    <string name="logo_proyecto">Logo Proyecto</string>
+    <string name="Registrese">Registro</string>
+    <string name="Cedula">Cedula</string>
+    <string name="Nombres">Nombres</string>
+    <string name="Apellidos">Apellidos</string>
+    <string name="Edad">Edad</string>
+    <string name="Nacionalidad">Nacionalidad</string>
+    <string name="Genero">Genero</string>
+    <string name="Estado_Civil">Estado Civil</string>
+    <string name="Fecha_Nacimiento">Fecha Nacimiento</string>
+    <string name="Nivel_Ingles">Nivel de Ingles</string>
 
     <!-- LOGIN-->
     <string name="titulo_login">Ingrese sesion</string>
