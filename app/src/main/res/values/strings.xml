@@ -16,6 +16,22 @@
     <string name="Fecha_Nacimiento">Fecha Nacimiento</string>
     <string name="Nivel_Ingles">Nivel de Ingles</string>
 
+    <!-- Opciones para el Spinner de Nacionalidad -->
+    <string-array name="nacionalidad_array">
+        <item>Ecuatoriana</item>
+        <item>Colombiana</item>
+        <item>Peruana</item>
+        <item>Argentina</item>
+        <item>Mexicana</item>
+        <!-- Agrega más nacionalidades si es necesario -->
+    </string-array>
+
+    <string-array name="genero_array">
+        <item>Masculino</item>
+        <item>Femenino</item>
+        <item>Otro</item>
+    </string-array>
+
     <!-- LOGIN-->
     <string name="titulo_login">Ingrese sesion</string>
     <string name="lbl_usuario">Usuario</string>
@@ -25,4 +41,5 @@
     <string name="btn_ingresar">Ingresar</string>
     <string name="btn_cancelar">Cancelar</string>
     <string name="lbl_crear_cuenta">No tienes cuenta? Registrese</string>
+
 </resources>
