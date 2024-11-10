@@ -10,6 +10,7 @@ import android.widget.RatingBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -31,6 +32,12 @@ public class RegistroActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        cedula = findViewById(R.id.Cedula); // Asegúrate de que el ID coincida con el de tu layout
+        nombres = findViewById(R.id.Nombre);
+        apellidos = findViewById(R.id.Apellidos);
+        edad = findViewById(R.id.edad);
+        ratingNivelIngles = findViewById(R.id.ratingBar);
 
         //conf spíners
         Spinner spinnerNacionalidad = findViewById(R.id.spinnerNacionalidad);
@@ -92,7 +99,9 @@ public class RegistroActivity extends AppCompatActivity {
         //boton cancelar
         btnCancelar.setOnClickListener(view -> {
             //regresamos al login
-            Intent intent = new Intent(this, SplashActivity.class);
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
         });
     }
 }
