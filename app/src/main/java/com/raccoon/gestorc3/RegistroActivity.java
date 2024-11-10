@@ -10,17 +10,19 @@ import android.widget.RatingBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.io.FileOutputStream;
+
 public class RegistroActivity extends AppCompatActivity {
 
     private EditText cedula, nombres, apellidos, edad;
     private RatingBar ratingNivelIngles;
+    private Spinner spinnerNacionalidad, spinnerGenero;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,16 +35,15 @@ public class RegistroActivity extends AppCompatActivity {
             return insets;
         });
 
-        cedula = findViewById(R.id.Cedula); // Asegúrate de que el ID coincida con el de tu layout
+        cedula = findViewById(R.id.Cedula);
         nombres = findViewById(R.id.Nombre);
         apellidos = findViewById(R.id.Apellidos);
         edad = findViewById(R.id.edad);
         ratingNivelIngles = findViewById(R.id.ratingBar);
 
         //conf spíners
-        Spinner spinnerNacionalidad = findViewById(R.id.spinnerNacionalidad);
-        Spinner spinnerGenero = findViewById(R.id.spinnerGenero);
-
+         spinnerNacionalidad = findViewById(R.id.spinnerNacionalidad);
+         spinnerGenero = findViewById(R.id.spinnerGenero);
 
         ArrayAdapter<CharSequence> nacionalidadAdapter = ArrayAdapter.createFromResource(
                 this,
@@ -51,7 +52,7 @@ public class RegistroActivity extends AppCompatActivity {
         nacionalidadAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerNacionalidad.setAdapter(nacionalidadAdapter);
 
-        ArrayAdapter <CharSequence> generoAdapter = ArrayAdapter.createFromResource(
+        ArrayAdapter<CharSequence> generoAdapter = ArrayAdapter.createFromResource(
                 this,
                 R.array.genero_array,
                 android.R.layout.simple_spinner_item
@@ -60,7 +61,7 @@ public class RegistroActivity extends AppCompatActivity {
         generoAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerGenero.setAdapter(generoAdapter);
 
-        //configurando los botones
+        //config botones
 
         Button btnRegistrar = findViewById(R.id.btnRegistrar);
         Button btnCancelar = findViewById(R.id.button2);
@@ -69,17 +70,20 @@ public class RegistroActivity extends AppCompatActivity {
         //boton registrar
         btnRegistrar.setOnClickListener(v -> {
             //obtener los datos de los campos de texto
-            String datos = "Cedula" +cedula.getText().toString() +
-                    "\nNombres" +nombres.getText().toString() +
-                    "\nApellidos" +apellidos.getText().toString() +
-                    "\nEdad" +edad.getText().toString() +
-                    "\nNacionalidad" +spinnerNacionalidad.getSelectedItem().toString() +
-                    "\nGenero" +spinnerGenero.getSelectedItem().toString() +
-                    "\nNivel de Ingles" +ratingNivelIngles.getRating();
+            String datos = "Cedula" + cedula.getText().toString() +
+                    "\nNombres" + nombres.getText().toString() +
+                    "\nApellidos" + apellidos.getText().toString() +
+                    "\nEdad" + edad.getText().toString() +
+                    "\nNacionalidad" + spinnerNacionalidad.getSelectedItem().toString() +
+                    "\nGenero" + spinnerGenero.getSelectedItem().toString() +
+                    "\nNivel de Ingles" + ratingNivelIngles.getRating();
 
             //MOSTRAMOS LOS DATOS EN EL LOGCAT CONSOLA
             Log.d("Datos", datos);
             Toast.makeText(this, "Datos registrados", Toast.LENGTH_SHORT).show();
+
+            // Llamamos al método para almacenar los datos en el archivo
+            almacenarDatosEnTxt();
         });
 
         //boton borrar
@@ -103,5 +107,27 @@ public class RegistroActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
+    }
+
+    // Método para almacenar los datos en el archivo.txt
+    private void almacenarDatosEnTxt() {
+        String datos = cedula.getText().toString() + ";" +
+                nombres.getText().toString() + ";" +
+                apellidos.getText().toString() + ";" +
+                edad.getText().toString() + ";" +
+                spinnerNacionalidad.getSelectedItem().toString() + ";" +
+                spinnerGenero.getSelectedItem().toString() + ";" +
+                ratingNivelIngles.getRating() + "\n";
+
+        try {
+            FileOutputStream fos = openFileOutput("registro_datos.txt", MODE_PRIVATE);
+            fos.write(datos.getBytes());
+            fos.close();
+
+            Toast.makeText(this, "Datos almacenados en archivo", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
     }
 }
